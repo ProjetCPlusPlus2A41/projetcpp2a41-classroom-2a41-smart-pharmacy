@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>icon/pdf.png</file>
+        <file>icon/excel-logo-8033473_960_720-removebg-preview.png</file>
+    </qresource>
+</RCC>
