@@ -1,5 +1,5 @@
 #include <iostrem> 
 
 int main{
- cout <<"hello"<<endl ;
+ cout <<"helo"<<endl ;
 }
