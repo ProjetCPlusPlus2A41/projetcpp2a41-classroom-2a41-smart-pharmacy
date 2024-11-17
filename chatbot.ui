@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>chatbot</class>
+ <widget class="QDialog" name="chatbot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>863</width>
+    <height>559</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="messageInput">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>370</y>
+     <width>301</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#messageInput{
+background-color: rgb(196, 255, 238);
+    border: 2px solid  #00a388;; /* Bordure rose */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 2px;}</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sendButton">
+   <property name="geometry">
+    <rect>
+     <x>112</x>
+     <y>370</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#sendButton{
+background-color: #fff;
+    width: 10px;
+    border: 2px solid #00a388;
+    border-radius: 15px;
+}</string>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="chatDisplay">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>50</y>
+     <width>641</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#chatDisplay{
+background-color: rgb(196, 255, 238);
+    border: 2px solid  #00a388;; /* Bordure rose */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 2px;}</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
