@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1328</width>
+    <height>730</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion des Clients</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-40</y>
+      <width>1251</width>
+      <height>731</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">/* Style de base pour QGroupBox (Pharmacie, Design épuré) */
+QGroupBox {
+    background-color: #ffffff; /* Fond blanc pour un aspect propre et simple */
+    border: 1px solid #2196f3; /* Bordure bleue pour un aspect professionnel */
+    border-radius: 10px; /* Coins arrondis pour un design doux */
+    padding: 20px 30px;
+    margin: 20px 0;
+    box-shadow: 0px 4px 12px rgba(33, 150, 243, 0.1); /* Ombre douce */
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+}
+
+/* Design épuré pour le titre */
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 12px 15px;
+    background-color: #f1f8ff; /* Bleu très clair pour le fond du titre */
+    color: #1976d2; /* Bleu plus foncé pour le titre */
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère autour du titre */
+}
+
+/* Ajouter un petit motif de médicament (ex: pilule) en haut à droite */
+QGroupBox::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #f8bbd0; /* Rouge doux */
+    border-radius: 50%;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Effet de survol plus doux */
+QGroupBox:hover {
+    box-shadow: 0px 6px 18px rgba(33, 150, 243, 0.2); /* Ombre plus marquée */
+    transform: scale(1.02); /* Agrandissement léger au survol */
+    transition: all 0.3s ease;
+}
+
+/* Effet au focus pour QGroupBox */
+QGroupBox:focus {
+    border: 2px solid #f44336; /* Bordure rouge vif au focus */
+    box-shadow: 0px 6px 18px rgba(244, 67, 54, 0.3); /* Ombre rouge clair au focus */
+}</string>
+    </property>
+    <property name="title">
+     <string>Ajouter Client</string>
+    </property>
+    <widget class="QLineEdit" name="linenom">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>130</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 2px solid #007bff;
+                border-radius: 5px;
+                padding: 8px;
+                background-color: #ffffff;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 15px;
+                border: 2px solid #0056b3;
+                background-color: #f0f8ff;
+            </string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineprenom">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>190</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 2px solid #007bff;
+                border-radius: 5px;
+                padding: 8px;
+                background-color: #ffffff;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 15px;
+                border: 2px solid #0056b3;
+                background-color: #f0f8ff;
+            </string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineadresse">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>250</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 2px solid #007bff;
+                border-radius: 5px;
+                padding: 8px;
+                background-color: #ffffff;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 15px;
+                border: 2px solid #0056b3;
+                background-color: #f0f8ff;
+            </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ajouterbutton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>380</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Ajouter</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="delete_2">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>450</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>delete</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style de base du QLabel */
+QLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #e0f7fa, stop:1 #ffffff); /* Dégradé doux du bleu clair au blanc */
+    color: #333; /* Couleur du texte */
+    font-weight: bold;
+    font-size: 15px;
+    padding: 12px 18px; /* Espacement interne pour un aspect spacieux */
+    border-radius: 12px; /* Coins légèrement arrondis */
+    margin-bottom: 12px; /* Espacement en bas */
+    border: 1px solid #b2ebf2; /* Bordure fine assortie */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    transition: all 0.3s ease; /* Transition douce pour les effets de survol */
+}
+
+/* Variante pour un QLabel de type alerte */
+QLabel.alert {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #ffcccb, stop:1 #ffffff); /* Dégradé rouge pâle */
+    color: #d32f2f;
+    border: 1px solid #ef9a9a;
+    box-shadow: 0px 6px 15px rgba(211, 47, 47, 0.2); /* Ombre rougeâtre plus prononcée */
+}
+
+/* Variante pour un QLabel de type succès */
+QLabel.success {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #c8e6c9, stop:1 #ffffff); /* Dégradé vert clair */
+    color: #388e3c;
+    border: 1px solid #a5d6a7;
+    box-shadow: 0px 6px 15px rgba(56, 142, 60, 0.2); /* Ombre verte plus prononcée */
+}
+
+/* Effet de survol pour tous les QLabel */
+QLabel:hover {
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Augmente l'ombre pour un effet interactif */
+    transform: scale(1.02); /* Légère augmentation de la taille au survol */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>prenom</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>140</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style de base pour le QLabel */
+QLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #e0f7fa, stop:1 #ffffff);
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #b2ebf2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Style spécifique pour le QLabel &quot;Nom&quot; */
+QLabel#nomLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #d1e7ff, stop:1 #ffffff);
+    color: #0056b3;
+    font-size: 15px;
+    border: 1px solid #a0c4e8;
+    box-shadow: 0px 5px 13px rgba(0, 86, 179, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Effet de survol pour &quot;Nom&quot; */
+QLabel#nomLabel:hover {
+    box-shadow: 0px 6px 18px rgba(0, 86, 179, 0.3);
+    transform: scale(1.02);
+}
+/* Style spécifique pour le QLabel &quot;Nom&quot; */
+QLabel#nomLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #d1e7ff, stop:1 #ffffff);
+    color: #ff6347; /* Nouvelle couleur de texte (tomato) */
+    font-family: 'Arial', sans-serif; /* Nouvelle police */
+    font-size: 15px;
+    border: 1px solid #a0c4e8;
+    box-shadow: 0px 5px 13px rgba(0, 86, 179, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Effet de survol pour &quot;Nom&quot; */
+QLabel#nomLabel:hover {
+    box-shadow: 0px 6px 18px rgba(0, 86, 179, 0.3);
+    transform: scale(1.02);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>nom</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>250</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style de base pour le QLabel */
+QLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #e0f7fa, stop:1 #ffffff);
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #b2ebf2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Style spécifique pour le QLabel &quot;Nom&quot; */
+QLabel#nomLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #d1e7ff, stop:1 #ffffff);
+    color: #0056b3;
+    font-size: 15px;
+    border: 1px solid #a0c4e8;
+    box-shadow: 0px 5px 13px rgba(0, 86, 179, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Effet de survol pour &quot;Nom&quot; */
+QLabel#nomLabel:hover {
+    box-shadow: 0px 6px 18px rgba(0, 86, 179, 0.3);
+    transform: scale(1.02);
+}
+/* Style spécifique pour le QLabel &quot;Nom&quot; */
+QLabel#nomLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #d1e7ff, stop:1 #ffffff);
+    color: #ff6347; /* Nouvelle couleur de texte (tomato) */
+    font-family: 'Arial', sans-serif; /* Nouvelle police */
+    font-size: 15px;
+    border: 1px solid #a0c4e8;
+    box-shadow: 0px 5px 13px rgba(0, 86, 179, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Effet de survol pour &quot;Nom&quot; */
+QLabel#nomLabel:hover {
+    box-shadow: 0px 6px 18px rgba(0, 86, 179, 0.3);
+    transform: scale(1.02);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>adresse</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="trier">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>380</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>tri</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="recherche">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>500</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>recherche</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="linedelete">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>440</y>
+       <width>181</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 2px solid #007bff;
+                border-radius: 5px;
+                padding: 8px;
+                background-color: #ffffff;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 15px;
+                border: 2px solid #0056b3;
+                background-color: #f0f8ff;
+            </string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>500</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 2px solid #007bff;
+                border-radius: 5px;
+                padding: 8px;
+                background-color: #ffffff;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 15px;
+                border: 2px solid #0056b3;
+                background-color: #f0f8ff;
+            </string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>90</y>
+       <width>691</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>480</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>PDF</string>
+     </property>
+    </widget>
+    <widget class="QQuickWidget" name="quickWidget_MapView">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>310</y>
+       <width>291</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="resizeMode">
+      <enum>QQuickWidget::SizeViewToRootObject</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>300</y>
+       <width>101</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style de base pour le QLabel */
+QLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #e0f7fa, stop:1 #ffffff);
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #b2ebf2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Style spécifique pour le QLabel &quot;Nom&quot; */
+QLabel#nomLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #d1e7ff, stop:1 #ffffff);
+    color: #0056b3;
+    font-size: 15px;
+    border: 1px solid #a0c4e8;
+    box-shadow: 0px 5px 13px rgba(0, 86, 179, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Effet de survol pour &quot;Nom&quot; */
+QLabel#nomLabel:hover {
+    box-shadow: 0px 6px 18px rgba(0, 86, 179, 0.3);
+    transform: scale(1.02);
+}
+/* Style spécifique pour le QLabel &quot;Nom&quot; */
+QLabel#nomLabel {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #d1e7ff, stop:1 #ffffff);
+    color: #ff6347; /* Nouvelle couleur de texte (tomato) */
+    font-family: 'Arial', sans-serif; /* Nouvelle police */
+    font-size: 15px;
+    border: 1px solid #a0c4e8;
+    box-shadow: 0px 5px 13px rgba(0, 86, 179, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+}
+
+/* Effet de survol pour &quot;Nom&quot; */
+QLabel#nomLabel:hover {
+    box-shadow: 0px 6px 18px rgba(0, 86, 179, 0.3);
+    transform: scale(1.02);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>type </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineadresse_2">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>300</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">  border: 2px solid #007bff;
+                border-radius: 5px;
+                padding: 8px;
+                background-color: #ffffff;
+                font-size: 14px;
+                color: #333;
+                margin-bottom: 15px;
+                border: 2px solid #0056b3;
+                background-color: #f0f8ff;
+            </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>280</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>To :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>320</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sujet</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>360</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Contenu</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="destinataireEmail">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>270</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="objetEmail">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>310</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="bodyEmail">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>350</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="email">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>480</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Envoi Mail</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stat">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>520</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* Style du bouton */
+QPushButton {
+    background-color: #ff6b6b; /* Couleur vive (rouge) */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px; /* Bords arrondis */
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+QPushButton:hover {
+    background-color: #ff5252; /* Couleur plus foncée au survol */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+}
+
+/* Effet lors du clic */
+QPushButton:pressed {
+    background-color: #e04040; /* Couleur plus sombre lors du clic */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Réduction de l'ombre */
+    padding: 9px 19px; /* Léger effet d'enfoncement */
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Statistique</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="quitter">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>quitter</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1328</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
