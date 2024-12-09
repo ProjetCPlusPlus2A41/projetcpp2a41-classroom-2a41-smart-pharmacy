@@ -1,0 +1,13 @@
+INPUT(
+./release\CustomSqlQueryModel.o
+./release\arduino.o
+./release\client.o
+./release\main.o
+./release\mainwindow.o
+./release\connection.o
+./release\qrc_resource.o
+./release\moc_AnimatedPopup.o
+./release\moc_ConfettiWidget.o
+./release\moc_CustomSqlQueryModel.o
+./release\moc_mainwindow.o
+);

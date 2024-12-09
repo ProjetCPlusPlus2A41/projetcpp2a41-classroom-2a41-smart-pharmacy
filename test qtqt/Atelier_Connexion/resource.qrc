@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>icon/pdf.png</file>
+        <file>icon/excel-logo-8033473_960_720-removebg-preview.png</file>
+        <file>icon/ellsworth-kelly-blue-green-yellow-orange-red-1966-trivium-art-history.800x0.jpg</file>
+        <file>icon/standing-human-icon-vector-illustration_136875-5465__1_-removebg-preview.png</file>
+        <file>icon/bck.jpg</file>
+    </qresource>
+</RCC>
